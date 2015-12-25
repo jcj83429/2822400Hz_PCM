@@ -149,7 +149,7 @@ processdsddata:
 			for(j=0; j<channelcount; j++){
 				tmp = inbuf[i*channelcount + j];
 				for(k=0; k<8; k++){
-					outbuf[i*channelcount*8 + j + k*channelcount] = (tmp & 0x80) | 0x40;
+					outbuf[i*channelcount*8 + j + k*channelcount] = (tmp & 0x80) | 0x40; //0x40 centres the waveform
 					tmp = tmp << 1;
 				}
 			}
