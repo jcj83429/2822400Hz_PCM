@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 
 #define BUFFER_SAMPLES (44100*16)
 
@@ -73,13 +74,14 @@ int main(int argc, char *argv[]){
 
 	if(argc != 3){
 		printf("Usage: %s input.dff output.pcm\n", argv[0]);
+		exit(1);
 	}
-	infile = fopen(argv[1], "r");
+	infile = fopen(argv[1], "rb");
 	if(infile == NULL){
 		printf("cannot open input\n");
 		exit(1);
 	}
-	outfile = fopen(argv[2], "w");
+	outfile = fopen(argv[2], "wb");
 	if(outfile == NULL){
 		printf("cannot open output\n");
 		exit(1);
